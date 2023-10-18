@@ -1,0 +1,72 @@
+---
+title: "Winner Declaration"
+api: "GET https://sandbox.api.scratchie.com/award/winner-declaration/:AwardUniqueNo"
+description: "The Winner Declaration API allows you to declare an award winner."
+---
+
+### Request Parameters
+
+<ParamField body="AwardUniqueNo" type="Number">
+  This field represents the [Award ID](https://{BASE_URL}/award/award-detail/:AwardId) endpoint for obtaining the ID.
+</ParamField>
+
+### Headers
+
+<ParamField body="Authorization" type="String">
+  Bearer `<access_token>`
+</ParamField>
+
+### Response
+
+<ResponseField name="status" type="Number">
+  The HTTP status code of the response.
+</ResponseField>
+
+<ResponseField name="err" type="Number">
+  An error code or indicator (0 if successful).
+</ResponseField>
+
+<ResponseField name="data" type="Object">
+  Details about the winner declaration.
+</ResponseField>
+
+<ResponseField name="msg" type="String">
+  A message indicating the result of the operation.
+</ResponseField>
+
+<RequestExample>
+
+```json
+GET https://{BASE_URL}/award/winner-declaration/TWJ0J8
+Authorization: Bearer <access_token>
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+  "status": 200,
+  "err": 0,
+  "data": {
+    "Id": 11206,
+    "UserId": 1256,
+    "ProjectPaymentStatusId": 171,
+    "AwardId": 3581,
+    "RandomToken": "TWJ0J8",
+    "Prize": 110,
+    "IsWinner": 0,
+    "IsGoodWorker": null,
+    "InTime": "2023-08-11 05:19:32.566",
+    "selected": 1,
+    "WorkerId": 1256,
+    "WinnerName": "check multiple",
+    "awardStatus": false,
+    "awardamount": 0
+  },
+  "msg": "Winner"
+}
+```
+
+</ResponseExample>

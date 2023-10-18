@@ -1,0 +1,94 @@
+---
+title: "Update Subcontractor"
+api: "POST https://sandbox.api.scratchie.com/subcontractor/update"
+description: "The Update Subcontractor API allows you to modify and update the details of a specific subcontractor."
+---
+
+### Request Parameters
+
+<ParamField body="TradeId" type="Number">
+  This field represents the [trades/list](https://{BASE_URL}/trades/list) endpoint for obtaining the ID.
+</ParamField>
+
+<ParamField body="ContactName" type="String">
+  Company contact person.
+</ParamField>
+
+<ParamField body="MobileNo" type="Number">
+  Mobile number.
+</ParamField>
+
+<ParamField body="Email" type="String">
+  User Email Id.
+</ParamField>
+
+<ParamField body="StartMonth" type="Date">
+  Time stamp of subcontractor start with the company.
+</ParamField>
+
+<ParamField body="EndMonth" type="Date">
+  Time stamp of subcontractor end with the company.
+</ParamField>
+
+<ParamField body="subcontractorId" type="Number">
+  This field represents the [subcontractor/create](https://{BASE_URL}/subcontractor/create) endpoint for obtaining the ID.
+</ParamField>
+
+### Headers
+
+<ParamField body="Authorization" type="String">
+  Bearer `<access_token>`
+</ParamField>
+
+### Response
+
+<ResponseField name="status" type="Number">
+  The HTTP status code of the response.
+</ResponseField>
+
+<ResponseField name="err" type="Number">
+  An error code or indicator (0 if successful).
+</ResponseField>
+
+<ResponseField name="data" type="Object">
+  Details of the updated subcontractor.
+</ResponseField>
+
+<ResponseField name="msg" type="String">
+  A message indicating the result of the operation.
+</ResponseField>
+
+
+### Request Example
+<RequestExample>
+```http
+POST https://{BASE_URL}/subcontractor/update
+Content-Type: application/json
+Authorization: Bearer <access_token>
+
+{
+  "subcontractorId": 285,
+  "TradeId": 4,
+  "ContactName": "update check",
+  "MobileNo": 53255,
+  "Email": "sfjksak@gmail.com",
+  "StartMonth": "1689585756000",
+  "EndMonth": "1691989904000",
+  "MonthlySpending": 300
+}
+```
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+  "status": 200,
+  "err": 0,
+  "data": {},
+  "msg": "Subcontractor successfully updated"
+}
+```
+</ResponseExample>
+
+

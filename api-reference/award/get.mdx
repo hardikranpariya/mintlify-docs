@@ -1,0 +1,86 @@
+---
+title: "Show Award Detail"
+api: "GET https://sandbox.api.scratchie.com/award/award-detail/:AwardId"
+description: "The Get Award Details API allows you to retrieve detailed information about a specific award."
+---
+
+### Request Parameters
+
+<ParamField body="AwardId" type="Number">
+  This field represents the [Award ID](https://{BASE_URL}/award/create) endpoint for obtaining the ID.
+</ParamField>
+
+### Headers
+
+<ParamField body="Authorization" type="String">
+  Bearer `<access_token>`
+</ParamField>
+
+### Response
+
+<ResponseField name="status" type="Number">
+  The HTTP status code of the response.
+</ResponseField>
+
+<ResponseField name="err" type="Number">
+  An error code or indicator (0 if successful).
+</ResponseField>
+
+<ResponseField name="data" type="Array">
+  Detailed information about the award.
+</ResponseField>
+
+<ResponseField name="msg" type="String">
+  A message indicating the result of the operation.
+</ResponseField>
+
+<RequestExample>
+
+```json
+GET https://{BASE_URL}/award/award-detail/3582
+Authorization: Bearer <access_token>
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+  "status": 200,
+  "err": 0,
+  "data": [
+    {
+      "Id": 3582,
+      "AwardGiverId": 1255,
+      "ProjectPaymentStatusId": 171,
+      "AwardType": 4,
+      "AwardCustomType": 2,
+      "Participate": 0,
+      "GoodWorkers": 0,
+      "Timeframe": 0,
+      "StartDate": "2023-08-11T05:59:01.000Z",
+      "EndDate": "0000-00-00 00:00:00",
+      "Prize": 110,
+      "RandomToken": "85K4PC",
+      "Type": "amount",
+      "WinnerId": 0,
+      "IsClaimReward": 0,
+      "ClaimRewardTime": "0000-00-00 00:00:00",
+      "json": "[{\"type\":\"Amount\",\"Prize\":100,\"count\":1},{\"type\":\"Amount\",\"Prize\":50,\"count\":1}]",
+      "CreatedBy": 2,
+      "CreatedOn": "2023-08-11T05:59:01.000Z",
+      "UpdatedBy": 2,
+      "UpdatedOn": "2023-08-11T05:59:01.000Z",
+      "Deleted": 1,
+      "selected": 1,
+      "CustomStartDate": "0000-00-00 00:00:00",
+      "CustomEndDate": "0000-00-00 00:00:00"
+    }
+  ],
+  "msg": "Award details successfully retrieved"
+}
+
+```
+
+</ResponseExample>

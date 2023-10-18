@@ -1,0 +1,91 @@
+---
+title: "Add Photos In Award"
+api: "POST https://sandbox.api.scratchie.com/api/save-photo/award"
+description: "The Add Photos In Award API allows you to seamlessly add photos to an award and associate them with the award."
+---
+
+### Request Parameters
+
+<ParamField body="AwardId" type="Number">
+  The unique identifier of the award to which you want to add photos.
+</ParamField>
+
+<ParamField body="ImageUrl" type="Array">
+  An array of image URLs to be associated with the award.
+</ParamField>
+
+### Headers
+
+<ParamField body="Authorization" type="String">
+  Bearer `<access_token>`
+</ParamField>
+
+### Response
+
+<ResponseField name="status" type="Number">
+  The HTTP status code of the response.
+</ResponseField>
+
+<ResponseField name="err" type="Number">
+  An error code or indicator (0 if successful).
+</ResponseField>
+
+<ResponseField name="data" type="Array">
+  An array of objects containing information about the added photos.
+</ResponseField>
+
+<ResponseField name="msg" type="String">
+  A message indicating the result of the operation (e.g., "Photos saved").
+</ResponseField>
+
+<RequestExample>
+
+```http
+POST https://{BASE_URL}/api/save-photo/award
+Content-Type: application/json
+Authorization: Bearer <access_token>
+
+{
+  "AwardId": 3582,
+  "ImageUrl": [
+    "imageUrl1",
+    "imageUrl2"
+  ]
+}
+```
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+  "status": 200,
+  "err": 0,
+  "data": [
+    {
+      "AwardId": 3582,
+      "imageUrl": "imageUrl1",
+      "Deleted": 0,
+      "CreatedOn": "2023-08-14T09:16:24.911Z",
+      "CreatedBy": 2,
+      "UpdatedOn": "2023-08-14T09:16:24.911Z",
+      "UpdatedBy": 2,
+      "PhotoId": 26
+    },
+    {
+      "AwardId": 3582,
+      "imageUrl": "imageUrl2",
+      "Deleted": 0,
+      "CreatedOn": "2023-08-14T09:16:24.911Z",
+      "CreatedBy": 2,
+      "UpdatedOn": "2023-08-14T09:16:24.911Z",
+      "UpdatedBy": 2,
+      "PhotoId": 27
+    }
+  ],
+  "msg": "Photos saved"
+}
+```
+</ResponseExample>
+
+

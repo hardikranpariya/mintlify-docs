@@ -1,0 +1,81 @@
+---
+title: "Update Project"
+api: "POST https://sandbox.api.scratchie.com/project/update"
+description: "The Update Project API allows you to modify and update the details of a specific project within the Scratchie Open API system."
+---
+
+### Body Parameters
+
+<ParamField body="Name" type="String">
+  The official name assigned to the project.
+</ParamField>
+
+<ParamField body="BuilderProjectReferenceNumber" type="String">
+  The unique reference number assigned to the project by the builder.
+</ParamField>
+
+<ParamField body="Address" type="String">
+  The address of the project's physical location.
+</ParamField>
+
+<ParamField body="minimumAmount" type="Number">
+  The required wallet size for the project, which must exceed $2,000.
+</ParamField>
+
+<ParamField body="ProjectId" type="Number">
+  The project ID for the project you want to update.
+</ParamField>
+
+### Headers
+
+<ParamField body="Authorization" type="String">
+  Bearer `<access_token>`
+</ParamField>
+
+### Response
+
+<ResponseField name="status" type="Number">
+  The HTTP status code of the response.
+</ResponseField>
+
+<ResponseField name="err" type="Number">
+  An error code or indicator (0 if successful).
+</ResponseField>
+
+<ResponseField name="data" type="Object">
+  An empty object as the response.
+
+<ResponseField name="msg" type="String">
+  A message indicating the result of the operation.
+</ResponseField>
+</ResponseField>
+
+<RequestExample>
+
+```bash
+curl --location --request POST 'https://{BASE_URL}/project/update' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer <access_token>' \
+--data-raw '{
+    "Name": "test open api project",
+    "BuilderProjectReferenceNumber": "5423fd",
+    "Address": "AUS",
+    "minimumAmount": 2000,
+    "ProjectId": 346782
+}'
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+  "status": 200,
+  "err": 0,
+  "data": {},
+  "msg": "Project successfully updated"
+}
+```
+
+</ResponseExample>

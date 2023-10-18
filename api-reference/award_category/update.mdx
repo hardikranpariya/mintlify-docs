@@ -1,0 +1,88 @@
+---
+title: "Update Award-Category"
+api: "POST https://sandbox.api.scratchie.com/award-category/update"
+description: "The Update Award-Category API allows you to seamlessly update a category in the Scratchie system and associate them with a Contracts Administrator (CA) for award categories."
+---
+
+### Request Parameters
+
+<ParamField body="caId" type="Number">
+  The unique identifier of the Contracts Administrator (CA).
+</ParamField>
+
+<ParamField body="firstDefaultId" type="Number">
+  This field represents the Id of the first default award category.
+</ParamField>
+
+<ParamField body="secoundDefaultId" type="Number">
+  This field represents the Id of the second default award category.
+</ParamField>
+
+<ParamField body="thirdDefaultId" type="Number">
+  This field represents the Id of the third default award category.
+</ParamField>
+
+<ParamField body="fourthDefaultId" type="Number">
+  This field represents the Id of the fourth default award category.
+</ParamField>
+
+<ParamField body="fifthDefaultId" type="Number">
+  This field represents the Id of the fifth default award category.
+</ParamField>
+
+### Headers
+
+
+<ParamField body="Authorization" type="String">
+  Bearer `<access_token>`
+</ParamField>
+
+### Response
+
+<ResponseField name="status" type="Number">
+  The HTTP status code of the response.
+</ResponseField>
+
+<ResponseField name="err" type="Number">
+  An error code or indicator (0 if successful).
+</ResponseField>
+
+<ResponseField name="data" type="Object">
+  An empty object indicating the success of the update operation.
+</ResponseField>
+
+<ResponseField name="msg" type="String">
+  A message indicating the result of the operation.
+</ResponseField>
+
+<RequestExample>
+
+```http
+POST https://{BASE_URL}/award-category/update
+Content-Type: application/json
+Authorization: Bearer <access_token>
+
+{
+  "caId": 12,
+  "firstDefaultId": 4,
+  "secoundDefaultId": 6,
+  "thirdDefaultId": 11,
+  "fourthDefaultId": 34,
+  "fifthDefaultId": 12
+}
+```
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+  "status": 200,
+  "err": 0,
+  "data": {},
+  "msg": "Award default category successfully updated."
+}
+```
+</ResponseExample>
+
+

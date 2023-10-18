@@ -1,0 +1,78 @@
+---
+title: "Create Award-Category"
+api: "POST https://sandbox.api.scratchie.com/award-category/create"
+description: "The Create Award-Category API allows you to seamlessly add a new Award-Category to Scratchie and associate them with award-category."
+---
+
+### Request Parameters
+
+<ParamField body="Name" type="String">
+  Category Name.
+</ParamField>
+
+<ParamField body="AwardTag" type="String">
+  Examples: Dust, Cutting, Wet, Cut, Room, Vacuum, Sand (comma-separated).
+</ParamField>
+
+### Headers
+
+<ParamField body="Authorization" type="String">
+  Bearer `<access_token>`
+</ParamField>
+
+### Response
+
+<ResponseField name="status" type="Number">
+  The HTTP status code of the response.
+</ResponseField>
+
+<ResponseField name="err" type="Number">
+  An error code or indicator (0 if successful).
+</ResponseField>
+
+<ResponseField name="data" type="Object">
+  Details of the created award category, including Name, Image, AwardTag, CreatedOn, CreatedBy, UpdatedOn, UpdatedBy, Deleted, DeleteBy, and Id.
+</ResponseField>
+
+<ResponseField name="msg" type="String">
+  A message indicating the result of the operation.
+</ResponseField>
+
+<RequestExample>
+
+```http
+POST https://{BASE_URL}/award-category/create
+Authorization: Bearer <access_token>
+Content-Type: application/json
+
+{
+  "Name": "check category",
+  "AwardTag": "Dust,Cutting,wet,cut,room,vacume,sand"
+}
+```
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+  "status": 200,
+  "err": 0,
+  "data": {
+    "Name": "check category",
+    "Image": "https://admin.scratchie.com/assets/media/logos/logo-1-light.png",
+    "AwardTag": "Dust,Cutting,wet,cut,room,vacume,sand",
+    "CreatedOn": "2023-08-14T08:22:00.380Z",
+    "CreatedBy": 2,
+    "UpdatedOn": "2023-08-14T08:22:00.380Z",
+    "UpdatedBy": 2,
+    "Deleted": 0,
+    "DeleteBy": 0,
+    "Id": 57
+  },
+  "msg": "Award category successfully added."
+}
+```
+</ResponseExample>
+
+

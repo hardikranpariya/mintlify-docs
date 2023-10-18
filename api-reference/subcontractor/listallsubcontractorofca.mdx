@@ -1,0 +1,81 @@
+---
+title: "Show Subcontractor List Of CA"
+api: "GET https://sandbox.api.scratchie.com/ca/subcontractor-list/:caId"
+description: "The Get Subcontractor List Of CA API allows you to retrieve detailed information about a specific user within Scratchie."
+---
+
+### Request Parameters
+
+<ParamField body="caId" type="Number">
+  This field represents the [caId](https://{BASE_URL}/ca/create) endpoint for obtaining the ID.
+</ParamField>
+
+### Headers
+
+<ParamField body="Authorization" type="String">
+  Bearer `<access_token>`
+</ParamField>
+
+### Response
+
+<ResponseField name="status" type="Number">
+  The HTTP status code of the response.
+</ResponseField>
+
+<ResponseField name="err" type="Number">
+  An error code or indicator (0 if successful).
+</ResponseField>
+
+<ResponseField name="data" type="Array">
+  List of subcontractors for the specified CA.
+</ResponseField>
+
+<ResponseField name="msg" type="String">
+  A message indicating the result of the operation.
+</ResponseField>
+
+<RequestExample>
+
+```http
+GET https://{BASE_URL}/ca/subcontractor-list/355
+Authorization: Bearer <access_token>
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+  "status": 200,
+  "err": 0,
+  "data": [
+    {
+      "Id": 159,
+      "CaUserId": 355,
+      "AbnNumber": "46355876485",
+      "ProjectId": 30,
+      "TradeId": 10,
+      "Name": "Shamrock Electrical",
+      "ContactName": "",
+      "Email": "",
+      "Address": "Unit 16/15 Meadow Way",
+      "Street": "Banksmeadow",
+      "State": "New South Wales",
+      "Pincode": "2019",
+      "Country": "Australia",
+      "StartDate": "NaN-NaN-NaN",
+      "EndDate": "NaN-NaN-NaN",
+      "MonthlySpending": 150,
+      "OldMonthlySpendingTypeId": 0,
+      "AwardCategoryType": null,
+      "MobileNo": "",
+      "Deleted": 0
+    },
+    // Other subcontractor entries...
+  ],
+  "msg": "Successfully retrieved subcontractors list."
+}
+```
+
+</ResponseExample>

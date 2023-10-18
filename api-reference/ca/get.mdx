@@ -1,0 +1,71 @@
+---
+title: "Show CA"
+api: "GET https://sandbox.api.scratchie.com/ca/view/:caId"
+description: "The Get CA Details API allows you to retrieve detailed information about a specific user within Scratchie's open API system."
+---
+
+### Request Parameters
+
+<ParamField body="caId" type="Number">
+  This field represents the https://{BASE_URL}/ca/create endpoint for obtaining the ID.
+</ParamField>
+
+### Headers
+
+<ParamField body="Authorization" type="String">
+  Bearer `<access_token>`
+</ParamField>
+
+### Response
+
+<ResponseField name="status" type="Number">
+  The HTTP status code of the response.
+</ResponseField>
+
+<ResponseField name="err" type="Number">
+  An error code or indicator (0 if successful).
+</ResponseField>
+
+<ResponseField name="data" type="Object">
+  Details of the specified CA.
+</ResponseField>
+
+<ResponseField name="msg" type="String">
+  A message indicating the result of the operation.
+</ResponseField>
+
+<RequestExample>
+
+```json
+GET https://{BASE_URL}/ca/view/14
+Authorization: Bearer <access_token>
+```
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+  "status": 200,
+  "err": 0,
+  "data": {
+    "id": 14,
+    "firstName": "hardik",
+    "lastName": "ca",
+    "email": "hardikca@gmail.com",
+    "password": "202cb962ac59075b964b07152d234b70",
+    "email_verify": 0,
+    "RoleId": 3,
+    "userId": 2,
+    "projectId": "52",
+    "approved": "0",
+    "deleted": 0,
+    "created_on": "2023-08-14T06:23:48.000Z",
+    "updated_on": "2023-08-14T06:23:48.000Z"
+  },
+  "msg": "CA details successfully retrieved."
+}
+```
+</ResponseExample>
+
+

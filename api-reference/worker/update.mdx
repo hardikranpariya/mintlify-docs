@@ -1,0 +1,81 @@
+---
+title: "Update Worker"
+api: "POST https://sandbox.api.scratchie.com/worker/update"
+description: "The Update Worker API allows you to modify and update the details of a specific user within the Scratchie Open API system."
+---
+
+### Request Parameters
+
+<ParamField body="FirstName" type="String">
+  First name of the user.
+</ParamField>
+
+<ParamField body="LastName" type="String">
+  Last name of the user.
+</ParamField>
+
+<ParamField body="MobileNo" type="Number">
+  Worker's mobile number.
+</ParamField>
+
+<ParamField body="workerId" type="Number">
+  This field represents the ID of the worker you want to update, obtained from the previous worker creation endpoint.
+</ParamField>
+
+### Headers
+
+<ParamField body="Content-Type" type="String">
+  application/json
+</ParamField>
+
+<ParamField body="Authorization" type="String">
+  Bearer `<access_token>`
+</ParamField>
+
+### Response
+
+<ResponseField name="status" type="Number">
+  The HTTP status code of the response.
+</ResponseField>
+
+<ResponseField name="err" type="Number">
+  An error code or indicator (0 if successful).
+</ResponseField>
+
+<ResponseField name="data" type="Object">
+  An empty object.
+</ResponseField>
+
+<ResponseField name="msg" type="String">
+  A message indicating the result of the operation.
+</ResponseField>
+
+<RequestExample>
+
+```json
+POST https://{BASE_URL}/worker/update
+Content-Type: application/json
+Authorization: Bearer <access_token>
+
+{
+  "FirstName": "full ets",
+  "LastName": "test",
+  "MobileNo": 535353,
+  "workerId": 1257
+}
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+  "status": 200,
+  "err": 0,
+  "data": {},
+  "msg": "Worker successfully updated"
+}
+```
+
+</ResponseExample>

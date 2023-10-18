@@ -1,9 +1,8 @@
 {
-  "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
+  "name": "Scratchie Open API",
   "logo": {
     "dark": "/logo/dark.svg",
-    "light": "/logo/light.svg"
+    "light": "/logo/dark.svg"
   },
   "favicon": "/favicon.png",
   "colors": {
@@ -21,12 +20,12 @@
   "topbarLinks": [
     {
       "name": "Support",
-      "url": "mailto:hi@mintlify.com"
+      "url": "mailto:hello@scratchie.com"
     }
   ],
   "topbarCtaButton": {
     "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
+    "url": "https://www.scratchie.com/"
   },
   "tabs": [
     {
@@ -34,49 +33,92 @@
       "url": "api-reference"
     }
   ],
-  "anchors": [
-    {
-      "name": "Documentation",
-      "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs"
-    },
-    {
-      "name": "Community",
-      "icon": "slack",
-      "url": "https://mintlify.com/community"
-    },
-    {
-      "name": "Blog",
-      "icon": "newspaper",
-      "url": "https://mintlify.com/blog"
-    }
-  ],
   "navigation": [
     {
-      "group": "Get Started",
-      "pages": ["introduction", "quickstart", "development"]
+      "group": "Documentation",
+      "pages": ["introduction"]
     },
     {
-      "group": "Essentials",
-      "pages": ["essentials/markdown", "essentials/code", "essentials/images", "essentials/settings", "essentials/navigation"]
+      "group": "GET STARTED",
+      "pages": ["api-reference/getstarted"]
     },
     {
-      "group": "API Documentation",
-      "pages": ["api-reference/authentication"]
-    },
-    {
-      "group": "Endpoint Examples",
+      "group": "Authentication",
       "pages": [
-        "api-reference/endpoint/get",
         "api-reference/endpoint/create",
-        "api-reference/endpoint/update",
-        "api-reference/endpoint/delete"
+        "api-reference/endpoint/get"
+      ]
+    },
+    {
+      "group": "Project",
+      "pages": [
+        "api-reference/project/create",
+        "api-reference/project/get",
+        "api-reference/project/update",
+        "api-reference/project/delete",
+        "api-reference/project/showallproject"
+      ]
+    },
+    {
+      "group": "Worker",
+      "pages": [
+        "api-reference/worker/create",
+        "api-reference/worker/get",
+        "api-reference/worker/update",
+        "api-reference/worker/delete",
+        "api-reference/worker/addbankaccount",
+        "api-reference/worker/withdrawwallet",
+        "api-reference/worker/joinmultipleproject",
+        "api-reference/worker/checkwalletbalance"
+      ]
+    },
+    {
+      "group": "Awards",
+      "pages": [
+        "api-reference/award/getcategory",
+        "api-reference/award/create",
+        "api-reference/award/contributeinaward",
+        "api-reference/award/delete",
+        "api-reference/award/awardwin",
+        "api-reference/award/getstockdetail",
+        "api-reference/award/get"
+      ]
+    },
+    {
+      "group": "Subcontrctor",
+      "pages": [
+        "api-reference/subcontractor/tradelist",
+        "api-reference/subcontractor/create",
+        "api-reference/subcontractor/get",
+        "api-reference/subcontractor/update",
+        "api-reference/subcontractor/delete",
+        "api-reference/subcontractor/listallsubcontractorofca"
+      ]
+    },
+    {
+      "group": "CA",
+      "pages": [
+        "api-reference/ca/create",
+        "api-reference/ca/get",
+        "api-reference/ca/delete",
+        "api-reference/ca/update"
+       
+      ]
+    },
+    {
+      "group": "Award Category",
+      "pages": [
+        "api-reference/award_category/create",
+        "api-reference/award_category/get",
+        "api-reference/award_category/delete",
+        "api-reference/award_category/update",
+        "api-reference/award_category/addphotoinaward"
       ]
     }
   ],
+  "feedback.thumbsRating": true,
   "footerSocials": {
-    "twitter": "https://twitter.com/mintlify",
-    "github": "https://github.com/mintlify",
-    "linkedin": "https://www.linkedin.com/company/mintsearch"
+    "twitter": "https://twitter.com/jameskell",
+    "linkedin": "https://www.linkedin.com/in/jameskell/"
   }
 }

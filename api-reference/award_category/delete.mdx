@@ -1,0 +1,57 @@
+---
+title: "Delete Award-Category"
+api: "DELETE https://sandbox.api.scratchie.com/award-category/:categoryId"
+description: "The Delete Award-Category API enables you to remove a specific category from Scratchie."
+---
+
+### Request Parameters
+
+<ParamField path="categoryId" type="Number">
+  This field represents the Id of the award category to be deleted.
+</ParamField>
+
+### Headers
+
+<ParamField body="Authorization" type="String">
+  Bearer `<access_token>`
+</ParamField>
+
+### Response
+
+<ResponseField name="status" type="Number">
+  The HTTP status code of the response.
+</ResponseField>
+
+<ResponseField name="err" type="Number">
+  An error code or indicator (0 if successful).
+</ResponseField>
+
+<ResponseField name="data" type="Object">
+  An empty object representing the deleted award category data.
+</ResponseField>
+
+<ResponseField name="msg" type="String">
+  A message indicating the result of the operation.
+</ResponseField>
+
+<RequestExample>
+
+```http
+DELETE https://{BASE_URL}/award-category/57
+Authorization: Bearer <access_token>
+```
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+  "status": 200,
+  "err": 0,
+  "data": {},
+  "msg": "Award category successfully deleted."
+}
+```
+</ResponseExample>
+
+

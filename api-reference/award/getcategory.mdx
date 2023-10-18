@@ -1,0 +1,75 @@
+---
+title: "Retrieve Award For Category"
+api: "GET https://sandbox.api.scratchie.com/award/get-award-type-categories"
+description: "The Retrieve Award For Category API allows you to determine the category for a created award."
+---
+
+### Request Parameters
+
+<ParamField path="workerId" type="Number">
+  This field represents the ID of the worker for whom you want to retrieve the wallet balance, obtained from the worker's creation endpoint.
+</ParamField>
+
+### Headers
+
+<ParamField body="Authorization" type="String">
+  Bearer `<access_token>`
+</ParamField>
+
+### Response
+
+<ResponseField name="status" type="Number">
+  The HTTP status code of the response.
+</ResponseField>
+
+<ResponseField name="err" type="Number">
+  An error code or indicator (0 if successful).
+</ResponseField>
+
+<ResponseField name="data" type="Array">
+  An array containing award categories with their IDs, names, and associated award tags.
+</ResponseField>
+
+<ResponseField name="msg" type="String">
+  A message indicating the result of the operation.
+</ResponseField>
+
+<RequestExample>
+
+```http
+GET https://{BASE_URL}/award/get-award-type-categories
+Authorization: Bearer <access_token>
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+  "status": 200,
+  "err": 0,
+  "data": [
+    {
+      "Id": 1,
+      "Name": "Site Security",
+      "AwardTag": "Fencing,Gate,scan,camera,lock,hoarding,fence"
+    },
+    {
+      "Id": 2,
+      "Name": "Safety Committee",
+      "AwardTag": "committee,team,representative,rep"
+    },
+    {
+      "Id": 3,
+      "Name": "Scaffold Safety",
+      "AwardTag": "Erect,Scaff,safe,dismantle,fall,prevent,handover,inspection,engineer,signoff,restrict"
+    },
+    // ... (other award categories)
+  ],
+  "msg": "List of all award categories"
+}
+
+```
+
+</ResponseExample>

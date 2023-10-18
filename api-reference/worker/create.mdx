@@ -1,0 +1,184 @@
+---
+title: "Create Worker"
+api: "POST https://sandbox.api.scratchie.com/worker/create"
+description: "The Create Worker API allows you to add a new worker to the Scratchie Open API system and associate them with a project."
+---
+
+### Body Parameters
+
+<ParamField body="FirstName" type="String">
+  The first name of the user.
+</ParamField>
+
+<ParamField body="LastName" type="String">
+  The last name of the user.
+</ParamField>
+
+<ParamField body="MobileNo" type="Number">
+  The mobile number of the worker.
+</ParamField>
+
+<ParamField body="Email" type="String">
+  The unique email of the worker.
+</ParamField>
+
+<ParamField body="Password" type="String">
+  The password of the worker.
+</ParamField>
+
+<ParamField body="Worker" type="Boolean">
+  If you are creating a worker, set the value of Worker to true. Otherwise, when creating an award-giver action, set Worker to false.
+</ParamField>
+
+<ParamField body="ProjectId" type="Number">
+  The ID of the project associated with the worker.
+</ParamField>
+
+<ParamField body="subcontractorId" type="Number">
+  The ID of the subcontractor associated with the worker.
+</ParamField>
+
+### Headers
+
+<ParamField body="Authorization" type="String">
+  Bearer `<access_token>`
+</ParamField>
+
+### Response
+
+<ResponseField name="status" type="Number">
+  The HTTP status code of the response.
+</ResponseField>
+
+<ResponseField name="err" type="Number">
+  An error code or indicator (0 if successful).
+</ResponseField>
+
+<ResponseField name="data" type="Object">
+  Information about the created worker.
+
+<Expandable title="Toggle object">
+  <ResponseField name="FirstName" type="String">
+    The first name of the user.
+  </ResponseField>
+
+  <ResponseField name="LastName" type="String">
+    The last name of the user.
+  </ResponseField>
+
+  <ResponseField name="MobileNo" type="Number">
+    The mobile number of the worker.
+  </ResponseField>
+
+  <ResponseField name="Email" type="String">
+    The unique email of the worker.
+  </ResponseField>
+
+  <ResponseField name="Password" type="String">
+    The hashed password of the worker.
+  </ResponseField>
+
+  <ResponseField name="RoleId" type="Number">
+    The role ID of the worker (5 for worker).
+  </ResponseField>
+
+  <ResponseField name="worker" type="Number">
+    Indicator (1 for worker).
+  </ResponseField>
+
+  <ResponseField name="ReferralCode" type="String">
+    The referral code of the worker.
+  </ResponseField>
+
+  <ResponseField name="ProjectId" type="Number">
+    The ID of the project associated with the worker.
+  </ResponseField>
+
+  <ResponseField name="StripAccountId" type="String">
+    The Stripe account ID (empty string).
+  </ResponseField>
+
+  <ResponseField name="BankAccountToken" type="String">
+    The bank account token (empty string).
+  </ResponseField>
+
+  <ResponseField name="Scope" type="String">
+    The worker's scope (empty string).
+  </ResponseField>
+
+  <ResponseField name="Deleted" type="Number">
+    Deletion status (0 if not deleted).
+  </ResponseField>
+
+  <ResponseField name="SubContractorId" type="Number">
+    The ID of the subcontractor associated with the worker.
+  </ResponseField>
+
+  <ResponseField name="CreatedOn" type="String">
+    The date and time when the worker was created.
+  </ResponseField>
+
+  <ResponseField name="UpdatedOn" type="String">
+    The date and time when the worker was last updated.
+  </ResponseField>
+
+  <ResponseField name="id" type="Number">
+    The unique ID of the created worker.
+  </ResponseField>
+  </Expandable>
+</ResponseField>
+
+<ResponseField name="msg" type="String">
+  A message indicating the result of the operation.
+</ResponseField>
+
+<RequestExample>
+
+```bash
+curl --location --request POST 'https://{BASE_URL}/worker/create' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer <access_token>' \
+--data-raw '{
+    "FirstName": "full ets",
+    "LastName": "test",
+    "MobileNo": 535353,
+    "Email": "svfhjsbvstyfjdh@gmail.com",
+    "Password": "141241",
+    "Worker": true,
+    "ProjectId": 51,
+    "subcontractorId": 284
+}'
+```
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+  "status": 200,
+  "err": 0,
+  "data": {
+    "FirstName": "full ets",
+    "LastName": "test",
+    "MobileNo": 535353,
+    "Email": "svfhjsbvstyfjdh@gmail.com",
+    "Password": "cdb5266d5819ca54354be6704a220b17",
+    "RoleId": 5,
+    "worker": 1,
+    "ReferralCode": "WTTBUE",
+    "ProjectId": 51,
+    "StripAccountId": "",
+    "BankAccountToken": "",
+    "Scope": "",
+    "Deleted": 0,
+    "SubContractorId": 284,
+    "CreatedOn": "2023-08-10T08:53:24.065Z",
+    "UpdatedOn": "2023-08-10T08:53:24.065Z",
+    "id": 1258
+  },
+  "msg": "Worker successfully created."
+}
+```
+</ResponseExample>
+
+

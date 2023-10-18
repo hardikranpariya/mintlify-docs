@@ -1,0 +1,88 @@
+---
+title: "GET Project Wallet Size"
+api: "POST https://sandbox.api.scratchie.com/award/current-month-stock"
+description: "The Retrieve Remaining Wallet Size API allows you to retrieve the current balance of the project's wallet."
+---
+
+### Request Parameters
+
+<ParamField body="ProjectId" type="Number">
+  This field represents the [Project ID](https://{BASE_URL}/project/view/:ProjectId) endpoint for obtaining the ID.
+</ParamField>
+
+<ParamField body="AwardGiverId" type="String">
+  The user who creates an award is referred to as the Award Giver and is associated with a specific project. (You can create [a worker here](https://{BASE_URL}/worker/create)).
+</ParamField>
+
+### Headers
+
+<ParamField body="Authorization" type="String">
+  Bearer `<access_token>`
+</ParamField>
+
+### Response
+
+<ResponseField name="status" type="Number">
+  The HTTP status code of the response.
+</ResponseField>
+
+<ResponseField name="err" type="Number">
+  An error code or indicator (0 if successful).
+</ResponseField>
+
+<ResponseField name="data" type="Object">
+  Details about the project's wallet size.
+</ResponseField>
+
+<ResponseField name="msg" type="String">
+  A message indicating the result of the operation.
+</ResponseField>
+
+<RequestExample>
+
+```json
+POST https://{BASE_URL}/award/current-month-stock
+Content-Type: application/json
+Authorization: Bearer <access_token>
+
+{
+  "ProjectId": 51,
+  "AwardGiverId": 1254
+}
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+  "status": 200,
+  "err": 0,
+  "data": {
+    "Id": 154,
+    "ProjectPaymentStatusId": 171,
+    "Reward500": 0,
+    "Reward100": 3,
+    "Reward50": 1,
+    "Reward20": 6,
+    "Reward10": 11,
+    "Month": "2023-08",
+    "PayAmount": 1000,
+    "AdminFees": 210,
+    "Point": 0,
+    "TotalAwardPrice": 580,
+    "AwardGiverProjectStatus": 0,
+    "Type": "amount",
+    "awardamount": {
+      "Monthly": 500,
+      "Weekly": 100
+    }
+  },
+  "msg": "Stock details"
+}
+  "msg": "Winner"
+}
+```
+
+</ResponseExample>

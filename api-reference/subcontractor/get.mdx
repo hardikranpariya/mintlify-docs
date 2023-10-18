@@ -1,0 +1,75 @@
+---
+title: "Show Subcontractor"
+api: "GET https://sandbox.api.scratchie.com/subcontractor/subcontractor-detail/:subcontractorId"
+description: "The Show Subcontractor API allows you to retrieve detailed information about a specific subcontractor."
+---
+
+### Request Parameters
+
+<ParamField body="subcontractorId" type="Number">
+  This field represents the [subcontractorId](https://{BASE_URL}/subcontractor/create) endpoint for obtaining the Id.
+</ParamField>
+
+### Headers
+
+<ParamField body="Authorization" type="String">
+  Bearer `<access_token>`
+</ParamField>
+
+### Response
+
+<ResponseField name="status" type="Number">
+  The HTTP status code of the response.
+</ResponseField>
+
+<ResponseField name="err" type="Number">
+  An error code or indicator (0 if successful).
+</ResponseField>
+
+<ResponseField name="data" type="Object">
+  Detailed information about the subcontractor.
+</ResponseField>
+
+<ResponseField name="msg" type="String">
+  A message indicating the result of the operation.
+</ResponseField>
+
+<RequestExample>
+
+```http
+GET https://{BASE_URL}/subcontractor/subcontractor-detail/285
+Authorization: Bearer <access_token>
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+  "status": 200,
+  "err": 0,
+  "data": {
+    "AbnNumber": 92620399493,
+    "CaUserId": 355,
+    "ProjectId": 51,
+    "TradeId": 3,
+    "Name": "check test",
+    "Address": "aus",
+    "Street": "aus",
+    "State": "aus",
+    "Pincode": 324234,
+    "Country": "Aus",
+    "ContactName": "test person",
+    "MobileNo": 3653664,
+    "Email": "checktest@gmail.com",
+    "StartDate": "2023-07-17",
+    "EndDate": "2023-09-17",
+    "MonthlySpending": 500,
+    "Id": 285
+  },
+  "msg": "Subcontractor successfully added"
+}
+```
+
+</ResponseExample>

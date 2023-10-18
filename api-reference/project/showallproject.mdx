@@ -1,0 +1,231 @@
+---
+title: "Show All Projects Of Builder"
+api: "POST https://sandbox.api.scratchie.com/project/listall"
+description: "The List All Projects Of The Builder API allows you to retrieve all the projects associated with a specific builder within the Scratchie Open API system."
+---
+
+### Body Parameters
+
+<ParamField body="userId" type="Number">
+  The ID of the builder whose projects you want to retrieve.
+</ParamField>
+
+<ParamField body="start" type="Number">
+  Where to start the record (Default = 1).
+</ParamField>
+
+<ParamField body="limit" type="Number">
+  Number of records to retrieve (Default = 10).
+</ParamField>
+
+### Headers
+
+<ParamField body="Authorization" type="String">
+  Bearer `<access_token>`
+</ParamField>
+
+### Response
+
+<ResponseField name="status" type="Number">
+  The HTTP status code of the response.
+</ResponseField>
+
+<ResponseField name="err" type="Number">
+  An error code or indicator (0 if successful).
+</ResponseField>
+
+<ResponseField name="data" type="Array">
+  An array of project objects associated with the builder.
+
+  <ItemField type="Object">
+    <ItemField name="Id" type="Number">
+      The project's unique ID.
+    </ItemField>
+
+    <ItemField name="Name" type="String">
+      The name of the project.
+    </ItemField>
+
+    <ItemField name="BuilderProjectReferenceNumber" type="String">
+      The unique reference number assigned to the project by the builder.
+    </ItemField>
+
+    <ItemField name="ScratchieProjectNumber" type="String">
+      The project's unique Scratchie project number.
+    </ItemField>
+
+    <ItemField name="Address" type="String">
+      The project's physical address.
+    </ItemField>
+
+    <ItemField name="MobileNo" type="String">
+      The mobile number associated with the project (or null if not provided).
+    </ItemField>
+
+    <ItemField name="AssignProjectCaId" type="Number">
+      ID of the assigned project (if any).
+    </ItemField>
+
+    <ItemField name="FundingOptions" type="String">
+      Funding options for the project.
+    </ItemField>
+
+    <ItemField name="minimumAmount" type="Number">
+      The required wallet size for the project, which must exceed $2,000.
+    </ItemField>
+
+    <ItemField name="lastMonthCarriedOver" type="Number">
+      The carried-over amount from the last month (if any).
+    </ItemField>
+
+    <ItemField name="PointPlan" type="Number">
+      The point plan for the project.
+    </ItemField>
+
+    <ItemField name="CreatedBy" type="Number">
+      The ID of the user who created the project.
+    </ItemField>
+
+    <ItemField name="CreatedOn" type="String">
+      The date and time when the project was created.
+    </ItemField>
+
+    <ItemField name="UpdatedBy" type="Number">
+      The ID of the user who last updated the project.
+    </ItemField>
+
+    <ItemField name="UpdatedOn" type="String">
+      The date and time when the project was last updated.
+    </ItemField>
+
+    <ItemField name="Deleted" type="Number">
+      Deletion status (0 if not deleted).
+    </ItemField>
+
+    <ItemField name="DeleteBy" type="String">
+      The user who deleted the project (or null if not deleted).
+    </ItemField>
+
+    <ItemField name="zaiWalletPayId" type="String">
+      Zai wallet payment ID.
+    </ItemField>
+
+    <ItemField name="zaiUserId" type="String">
+      Zai user ID.
+    </ItemField>
+
+    <ItemField name="awardGiverWin" type="Number">
+      Award giver status.
+    </ItemField>
+
+    <ItemField name="procoreCompanyId" type="String">
+      Procore company ID (or null if not provided).
+    </ItemField>
+
+    <ItemField name="scratchieOpenApi" type="Number">
+      Scratchie Open API status (1 if enabled).
+    </ItemField>
+  </ItemField>
+
+</ResponseField>
+
+<ResponseField name="msg" type="String">
+  A message indicating the result of the operation.
+</ResponseField>
+
+<RequestExample>
+
+```bash
+curl --location --request POST 'https://{BASE_URL}/project/listall' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer <access_token>' \
+--data-raw '{
+    "userId": 2
+}'
+```
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{{
+  "status": 200,
+  "err": 0,
+  "data": [
+    {
+      "Id": 52,
+      "Name": "test open api  1project",
+      "BuilderProjectReferenceNumber": "5423fd",
+      "ScratchieProjectNumber": "AU22",
+      "Address": "AUS",
+      "MobileNo": null,
+      "AssignProjectCaId": 0,
+      "FundingOptions": "1",
+      "minimumAmount": 2000,
+      "lastMonthCarriedOver": 0,
+      "PointPlan": 0,
+      "CreatedBy": 2,
+      "CreatedOn": "2023-08-10T05:39:17.000Z",
+      "UpdatedBy": 2,
+      "UpdatedOn": "2023-08-10T06:44:24.000Z",
+      "Deleted": 0,
+      "DeleteBy": null,
+      "zaiWalletPayId": "2cb228a0-196e-013c-9b19-0a58a9feac03",
+      "zaiUserId": "52-test open project-AU22",
+      "awardGiverWin": 0,
+      "procoreCompanyId": null,
+      "scratchieOpenApi": 1
+    },
+    {
+      "Id": 51,
+      "Name": "scratchie_open_api_check",
+      "BuilderProjectReferenceNumber": "BJD",
+      "ScratchieProjectNumber": "AU21",
+      "Address": "AUS",
+      "MobileNo": null,
+      "AssignProjectCaId": 12,
+      "FundingOptions": "1",
+      "minimumAmount": 2000,
+      "lastMonthCarriedOver": 0,
+      "PointPlan": 0,
+      "CreatedBy": 2,
+      "CreatedOn": "2023-07-14T09:47:50.000Z",
+      "UpdatedBy": 2,
+      "UpdatedOn": "2023-07-14T09:47:50.000Z",
+      "Deleted": 0,
+      "DeleteBy": null,
+      "zaiWalletPayId": "542e71a0-042b-013c-0ea6-0a58a9feac03",
+      "zaiUserId": "51-scratchie_open_api_check-AU21",
+      "awardGiverWin": 0,
+      "procoreCompanyId": null,
+      "scratchieOpenApi": 1
+    },
+    {
+      "Id": 50,
+      "Name": "project1",
+      "BuilderProjectReferenceNumber": "123",
+      "ScratchieProjectNumber": "AU20",
+      "Address": "AU",
+      "MobileNo": null,
+      "AssignProjectCaId": 0,
+      "FundingOptions": "1",
+      "minimumAmount": 2000,
+      "lastMonthCarriedOver": 0,
+      "PointPlan": 0,
+      "CreatedBy": 2,
+      "CreatedOn": "2023-04-12T09:53:01.000Z",
+      "UpdatedBy": 2,
+      "UpdatedOn": "2023-04-12T09:53:01.000Z",
+      "Deleted": 0,
+      "DeleteBy": null,
+      "zaiWalletPayId": "a558c720-bb17-013b-da00-0a58a9feac03",
+      "zaiUserId": "50-project1-AU20",
+      "awardGiverWin": 0,
+      "procoreCompanyId": null,
+      "scratchieOpenApi": 1
+    }
+  ],
+  "msg": "Project list successfully retrieved"
+}
+```
+</ResponseExample>

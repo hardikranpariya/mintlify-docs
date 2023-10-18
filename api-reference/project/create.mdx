@@ -1,0 +1,155 @@
+---
+title: "Create Project"
+api: "POST https://sandbox.api.scratchie.com/project/create"
+description: "The Create Project API allows you to create a new project in Scratchie. Projects are a fundamental component of Scratchie and provide a structured way to organize worker management."
+---
+
+### Body
+
+<ParamField body="Name" type="String">
+  This field denotes the official name assigned to your project.
+</ParamField>
+
+<ParamField body="BuilderProjectReferenceNumber" type="String">
+  This is the unique reference number assigned to the project by the builder.
+</ParamField>
+
+<ParamField body="Address" type="String">
+  This field refers to the address of your project's physical location.
+</ParamField>
+
+<ParamField body="minimumAmount" type="Number">
+  The minimumAmount parameter represents the required wallet size for your project, which must exceed $2,000.
+</ParamField>
+
+### Headers
+
+<ParamField body="Content-Type" type="String">
+  application/json
+</ParamField>
+
+<ParamField body="Authorization" type="String">
+  Bearer `<access_token>`
+</ParamField>
+
+### Response
+
+<ResponseField name="status" type="Number">
+  The HTTP status code of the response.
+</ResponseField>
+
+<ResponseField name="err" type="Number">
+  An error code or indicator (0 if successful).
+</ResponseField>
+
+<ResponseField name="data" type="Object">
+  Detailed information about the project.
+
+<Expandable title="Toggle object">
+
+<ResponseField name="Name" type="String">
+  The official name assigned to the created project.
+</ResponseField>
+
+<ResponseField name="BuilderProjectReferenceNumber" type="String">
+  The unique reference number assigned to the project by the builder.
+</ResponseField>
+
+<ResponseField name="ScratchieProjectNumber" type="String">
+  The project number assigned by Scratchie.
+</ResponseField>
+
+<ResponseField name="Address" type="String">
+  The address of the project's physical location.
+</ResponseField>
+
+<ResponseField name="AssignProjectCaId" type="Number">
+  The assigned project ID.
+</ResponseField>
+
+<ResponseField name="FundingOptions" type="Number">
+  The funding options.
+</ResponseField>
+
+<ResponseField name="PointPlan" type="Number">
+  The point plan.
+</ResponseField>
+
+<ResponseField name="minimumAmount" type="Number">
+  The required wallet size, which must exceed $2,000.
+</ResponseField>
+
+<ResponseField name="awardGiverWin" type="Number">
+  The award giver win.
+</ResponseField>
+
+<ResponseField name="CreatedBy" type="Number">
+  The ID of the user who created the project.
+</ResponseField>
+
+<ResponseField name="UpdatedBy" type="Number">
+  The ID of the user who updated the project.
+</ResponseField>
+
+<ResponseField name="scratchieOpenApi" type="Number">
+  Indicates the use of Scratchie Open API.
+</ResponseField>
+
+<ResponseField name="CreatedOn" type="String">
+  The date and time when the project was created.
+</ResponseField>
+
+<ResponseField name="UpdatedOn" type="String">
+  The date and time when the project was last updated.
+</ResponseField>
+
+<ResponseField name="Id" type="Number">
+  The unique ID of the created project.
+</ResponseField>
+
+</Expandable>
+</ResponseField>
+
+<ResponseField name="msg" type="String">
+  A message indicating the result of the operation.
+</ResponseField>
+
+<RequestExample>
+
+```bash
+curl --location --request POST 'https://{BASE_URL}/project/create' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer <access_token>' \
+--data-raw '{
+    "Name": "test open api project",
+    "BuilderProjectReferenceNumber": "5423defsdfd",
+    "Address": "AUS",
+    "minimumAmount": 2000
+}'
+```
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+  "Name": "test open api project",
+  "BuilderProjectReferenceNumber": "5423defsdfd",
+  "ScratchieProjectNumber": "AU22342352",
+  "Address": "AUS",
+  "AssignProjectCaId": 0,
+  "FundingOptions": 1,
+  "PointPlan": 0,
+  "minimumAmount": 2000,
+  "awardGiverWin": 0,
+  "CreatedBy": 2,
+  "UpdatedBy": 2,
+  "scratchieOpenApi": 1,
+  "CreatedOn": "2023-08-10T05:39:17.172Z",
+  "UpdatedOn": "2023-08-10T05:39:17.172Z",
+  "Id": 346782
+}
+```
+</ResponseExample>
+
+

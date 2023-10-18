@@ -1,0 +1,57 @@
+---
+title: "Delete Subcontractor"
+api: "DELETE https://sandbox.api.scratchie.com/subcontractor/delete/:subcontractorId"
+description: "The Delete Subcontractor API enables you to remove a specific user from the system."
+---
+
+### Request Parameters
+
+<ParamField body="subcontractorId" type="Number">
+  This field represents the [subcontractorId](https://{BASE_URL}/subcontractor/subcontractor-detail/:subcontractorId) endpoint for obtaining the ID.
+</ParamField>
+
+### Headers
+
+<ParamField body="Authorization" type="String">
+  Bearer `<access_token>`
+</ParamField>
+
+### Response
+
+<ResponseField name="status" type="Number">
+  The HTTP status code of the response.
+</ResponseField>
+
+<ResponseField name="err" type="Number">
+  An error code or indicator (0 if successful).
+</ResponseField>
+
+<ResponseField name="data" type="Object">
+  Details of the deleted subcontractor.
+</ResponseField>
+
+<ResponseField name="msg" type="String">
+  A message indicating the result of the operation.
+</ResponseField>
+
+<RequestExample>
+
+```http
+DELETE https://{BASE_URL}/subcontractor/delete/285
+Authorization: Bearer <access_token>
+```
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+  "status": 200,
+  "err": 0,
+  "data": {},
+  "msg": "Subcontractor successfully deleted."
+}
+```
+</ResponseExample>
+
+

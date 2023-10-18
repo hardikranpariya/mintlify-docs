@@ -1,0 +1,73 @@
+---
+title: "Retrieve Trade List For Subcontractor"
+api: "GET https://sandbox.api.scratchie.com/award/get-award-type-categories"
+description: "The Retrieve Trade List API provides the ability to access and review trade-related information."
+---
+
+### Request Parameters
+
+### Headers
+
+<ParamField body="Authorization" type="String">
+  Bearer `<access_token>`
+</ParamField>
+
+### Response
+
+<ResponseField name="status" type="Number">
+  The HTTP status code of the response.
+</ResponseField>
+
+<ResponseField name="err" type="Number">
+  An error code or indicator (0 if successful).
+</ResponseField>
+
+<ResponseField name="data" type="Array">
+  An array containing trade details with their IDs, names, images, and associated award tags.
+</ResponseField>
+
+<ResponseField name="msg" type="String">
+  A message indicating the result of the operation.
+</ResponseField>
+
+<RequestExample>
+
+```http
+GET https://{BASE_URL}/trades/list
+Authorization: Bearer <access_token>
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+  "status": 200,
+  "err": 0,
+  "data": [
+    {
+      "tradeId": 3,
+      "Name": "Scratchie Trade",
+      "Image": "image/trades/1634906708.png",
+      "AwardTag": "Scratchie,Scratchie1"
+    },
+    {
+      "tradeId": 4,
+      "Name": "Bricklayer",
+      "Image": "image/trades/1634944853.png",
+      "AwardTag": "brickie,mason,cmu,blocklayer"
+    },
+    {
+      "tradeId": 5,
+      "Name": "Carpenter",
+      "Image": "image/trades/1634944911.png",
+      "AwardTag": "chippie,woodwork"
+    },
+    // ... (other trade details)
+  ],
+  "msg": "Successfully retrieved trades list"
+}
+```
+
+</ResponseExample>

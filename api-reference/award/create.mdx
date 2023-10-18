@@ -1,0 +1,139 @@
+---
+title: "Create Award"
+api: "POST https://sandbox.api.scratchie.com/award/create"
+description: "The Create Award API enables you to add a new award to the Scratchie Open API system and associate it with a specific project, using the project's wallet."
+---
+
+### Request Parameters
+
+<ParamField body="AwardGiverId" type="Number">
+  The user who creates an award is referred to as the Award Giver and associates it with a specific project. You can create this ID by using `{BASE_URL}/worker/create`.
+</ParamField>
+
+<ParamField body="AwardType" type="Number">
+  Specify the Category when creating an award. You can get the available award types from `{BASE_URL}/award/get-award-type-categories`.
+</ParamField>
+
+<ParamField body="AwardCustomType" type="Number">
+  (Regular = 0), (Monthly = 1), (Weekly = 2), (Custom = 3)
+</ParamField>
+
+<ParamField body="CustomAwardPrice" type="Number">
+  If you choose (Custom = 3) as an option, how the award amount should be determined during the award creation process.
+</ParamField>
+
+<ParamField body="GoodWorkers" type="Number">
+  (Favor “good” workers = 1), (Everyone = 2)
+</ParamField>
+
+<ParamField body="Timeframe" type="Number">
+  (This past week = 1), (This past month = 2), (Custom = 3)
+</ParamField>
+
+<ParamField body="TimeFrameDate" type="date">
+  If you choose (Timeframe - Custom = 3) as an option, your award timeframe start date.
+</ParamField>
+
+<ParamField body="TimeFrameEndDate" type="date">
+  If you choose (Timeframe - Custom = 3) as an option, your award timeframe end date.
+</ParamField>
+
+<ParamField body="WorkerId" type="Array">
+  [workerId1, workerId2] Those workers who can participate.
+</ParamField>
+
+<ParamField body="ProjectId" type="Number">
+  Which project to associate with the created award.
+</ParamField>
+
+### Headers
+
+<ParamField body="Content-Type" type="String">
+  application/json
+</ParamField>
+
+<ParamField body="Authorization" type="String">
+  Bearer `<access_token>`
+</ParamField>
+
+### Response
+
+<ResponseField name="status" type="Number">
+  The HTTP status code of the response.
+</ResponseField>
+
+<ResponseField name="err" type="Number">
+  An error code or indicator (0 if successful).
+</ResponseField>
+
+<ResponseField name="data" type="Object">
+  Details of the created award.
+</ResponseField>
+
+<ResponseField name="msg" type="String">
+  A message indicating the result of the operation.
+</ResponseField>
+
+### Request Example
+
+<RequestExample>
+
+```json
+POST https://{BASE_URL}/award/create
+Content-Type: application/json
+Authorization: Bearer <access_token>
+
+{
+  "AwardGiverId": 1255,
+  "AwardType": 4,
+  "AwardCustomType": 0,
+  "CustomAwardPrice": 0,
+  "GoodWorkers": 0,
+  "Timeframe": 0,
+  "TimeFrameDate": 0,
+  "TimeFrameEndDate": 0,
+  "WorkerId": [1256, 1258],
+  "ProjectId": 51
+}
+
+```
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+  "status": 200,
+  "err": 0,
+  "data": {
+    "AwardGiverId": 1255,
+    "ProjectPaymentStatusId": 171,
+    "AwardType": 4,
+    "AwardCustomType": 2,
+    "Participate": 0,
+    "GoodWorkers": 0,
+    "Timeframe": 0,
+    "StartDate": "2023-08-11 05:59:01",
+    "EndDate": "",
+    "Prize": 110,
+    "RandomToken": "85K4PC",
+    "Type": "amount",
+    "WinnerId": 0,
+    "IsClaimReward": 0,
+    "ClaimRewardTime": "",
+    "json": "",
+    "CreatedOn": "2023-08-11T05:59:01.313Z",
+    "CreatedBy": "1970-01-01 00:00:00",
+    "UpdatedOn": "2023-08-11T05:59:01.313Z",
+    "UpdatedBy": "1970-01-01 00:00:00",
+    "Deleted": 0,
+    "CustomStartDate": "1970-01-01T00:00:00.000Z",
+    "CustomEndDate": "1970-01-01T00:00:00.000Z",
+    "Id": 3582
+  },
+  "msg": "Award added successfully!"
+}
+```
+</ResponseExample>
+
+

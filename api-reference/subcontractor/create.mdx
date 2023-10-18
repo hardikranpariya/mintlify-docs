@@ -1,0 +1,149 @@
+---
+title: "Create Subcontractor"
+api: "POST https://sandbox.api.scratchie.com/subcontractor/create"
+description: "The Create Subcontractor API allows you to seamlessly add a new Subcontractor to the Scratchie Open API system and associate them with a project."
+---
+
+### Request Parameters
+
+### Headers
+
+<ParamField body="Authorization" type="String">
+  Bearer `<access_token>`
+</ParamField>
+
+<ParamField body="AbnNumber" type="Number">
+  Australian Business Number (ABN) is an 11-digit unique number.
+</ParamField>
+
+<ParamField body="CaId" type="Number">
+  Specify the CA When Creating a subcontractor. (`{BASE_URL}/ca/create`)
+</ParamField>
+
+<ParamField body="ProjectId" type="Number">
+  Projects associated with the worker.
+</ParamField>
+
+<ParamField body="TradeId" type="Number">
+  Specify the Trade When Creating a subcontractor (`{BASE_URL}/trades/list`)
+</ParamField>
+
+<ParamField body="Name" type="String">
+  Name of the subcontractor company name.
+</ParamField>
+
+<ParamField body="Address" type="String">
+  Address of the subcontractor company.
+</ParamField>
+
+<ParamField body="Street" type="String">
+  After the recipient's name, you need to write the street address, in our example, this is 98 Shirley Street.
+</ParamField>
+
+<ParamField body="State" type="String">
+  State.
+</ParamField>
+
+<ParamField body="Pincode" type="Number">
+  Pincode.
+</ParamField>
+
+<ParamField body="Country" type="String">
+  Country.
+</ParamField>
+
+<ParamField body="ContactName" type="String">
+  Company contact person.
+</ParamField>
+
+<ParamField body="MobileNo" type="Number">
+  Contact person mobile number.
+</ParamField>
+
+<ParamField body="Email" type="String">
+  Email id.
+</ParamField>
+
+<ParamField body="StartMonth" type="date">
+  Timestamp of subcontractor start with the company.
+</ParamField>
+
+<ParamField body="EndMonth" type="date">
+  Timestamp of subcontractor end with the company.
+</ParamField>
+
+<ParamField body="MonthlySpending" type="Number">
+  Amount.
+</ParamField>
+
+### Response
+
+<ResponseField name="status" type="Number">
+  The HTTP status code of the response.
+</ResponseField>
+<ResponseField name="err" type="Number">
+  An error code or indicator (0 if successful).
+</ResponseField>
+<ResponseField name="data" type="Object">
+  An object containing the created subcontractor details.
+</ResponseField>
+<ResponseField name="msg" type="String">
+  A message indicating the result of the operation.
+</ResponseField>
+
+### Request Example
+<RequestExample>
+```http
+POST https://{BASE_URL}/subcontractor/create
+Content-Type: application/json
+Authorization: Bearer <access_token>
+{
+  "AbnNumber": 92620459493,
+  "CaId": 355,
+  "ProjectId": 51,
+  "TradeId": 3,
+  "Name": "check test",
+  "Address": "aus",
+  "Street": "aus",
+  "State": "aus",
+  "Pincode": 324234,
+  "Country": "Aus",
+  "ContactName": "test person",
+  "MobileNo": 3653664,
+  "Email": "checktest@gmail.com",
+  "StartMonth": "1689585756000",
+  "EndMonth": "1689585756000",
+  "MonthlySpending": 500
+}
+```
+</RequestExample>
+<ResponseExample>
+
+```json Response
+{
+  "status": 200,
+  "err": 0,
+  "data": {
+    "AbnNumber": 92620399493,
+    "CaUserId": 355,
+    "ProjectId": 51,
+    "TradeId": 3,
+    "Name": "check test",
+    "Address": "aus",
+    "Street": "aus",
+    "State": "aus",
+    "Pincode": 324234,
+    "Country": "Aus",
+    "ContactName": "test person",
+    "MobileNo": 3653664,
+    "Email": "checktest@gmail.com",
+    "StartDate": "2023-07-17",
+    "EndDate": "2023-07-17",
+    "MonthlySpending": 500,
+    "Id": 285
+  },
+  "msg": "Subcontractor successfully added"
+}
+
+```
+</ResponseExample>

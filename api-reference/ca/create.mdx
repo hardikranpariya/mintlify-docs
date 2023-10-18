@@ -1,0 +1,93 @@
+---
+title: "Create CA"
+api: "POST https://sandbox.api.scratchie.com/ca/create"
+description: "The Create CA API allows you to seamlessly add a new Contracts Administrator (CA) to Scratchie and associate them with a project."
+---
+
+### Request Parameters
+
+<ParamField body="firstName" type="String">
+  First name of the CA.
+</ParamField>
+
+<ParamField body="lastName" type="String">
+  Last name of the CA.
+</ParamField>
+
+<ParamField body="email" type="String">
+  Email address of the CA.
+</ParamField>
+
+<ParamField body="projectId" type="Number">
+  ID of the project associated with the CA.
+</ParamField>
+
+<ParamField body="password" type="String">
+  Password for the CA.
+</ParamField>
+
+### Headers
+
+<ParamField body="Authorization" type="String">
+  Bearer `<access_token>`
+</ParamField>
+
+### Response
+
+<ResponseField name="status" type="Number">
+  The HTTP status code of the response.
+</ResponseField>
+
+<ResponseField name="err" type="Number">
+  An error code or indicator (0 if successful).
+</ResponseField>
+
+<ResponseField name="data" type="Object">
+  Details of the newly created CA.
+</ResponseField>
+
+<ResponseField name="msg" type="String">
+  A message indicating the result of the operation.
+</ResponseField>
+
+<RequestExample>
+
+```json
+POST https://{BASE_URL}/ca/create
+Content-Type: application/json
+Authorization: Bearer <access_token>
+
+{
+  "firstName": "xyz",
+  "lastName": "ca",
+  "email": "xyzca@gmail.com",
+  "password": "123",
+  "projectId": 52
+}
+```
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+  "status": 200,
+  "err": 0,
+  "data": {
+    "firstName": "hardik",
+    "lastName": "ca",
+    "email": "hardikca@gmail.com",
+    "email_verify": false,
+    "RoleId": 3,
+    "userId": 2,
+    "projectId": 52,
+    "created_on": "2023-08-14T06:23:48.162Z",
+    "updated_on": "2023-08-14T06:23:48.162Z",
+    "id": 14
+  },
+  "msg": "CA successfully added. Please verify your account."
+}
+```
+</ResponseExample>
+
+

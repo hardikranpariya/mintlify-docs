@@ -1,0 +1,158 @@
+---
+title: "Show CA Default Category"
+api: "GET https://sandbox.api.scratchie.com/award-default_category/:caId"
+description: "The Get CA Default category API allows you to retrieve detailed information about a specific CA Default category within Scratchie open API system."
+---
+
+### Request Parameters
+
+<ParamField path="caId" type="Number">
+  This field represents the Id of the Contracts Administrator (CA) for which you want to retrieve the default award categories.
+</ParamField>
+
+### Headers
+
+<ParamField body="Authorization" type="String">
+  Bearer `<access_token>`
+</ParamField>
+
+### Response
+
+<ResponseField name="status" type="Number">
+  The HTTP status code of the response.
+</ResponseField>
+
+<ResponseField name="err" type="Number">
+  An error code or indicator (0 if successful).
+</ResponseField>
+
+<ResponseField name="data" type="Array">
+  An array of default award category objects.
+
+  <SubField name="Id" type="Number">
+    The unique identifier of the award category.
+  </SubField>
+
+  <SubField name="Name" type="String">
+    The name of the award category.
+  </SubField>
+
+  <SubField name="Image" type="String">
+    URL of the award category image.
+  </SubField>
+
+  <SubField name="AwardTag" type="String">
+    Tags associated with the award category.
+  </SubField>
+
+  <SubField name="CreatedOn" type="String">
+    Date and time when the award category was created.
+  </SubField>
+
+  <SubField name="CreatedBy" type="Number">
+    The user who created the award category.
+  </SubField>
+
+  <SubField name="UpdatedOn" type="String">
+    Date and time when the award category was last updated.
+  </SubField>
+
+  <SubField name="UpdatedBy" type="Number">
+    The user who last updated the award category.
+  </SubField>
+
+  <SubField name="Deleted" type="Number">
+    Indicates if the award category is deleted (0 if not deleted).
+  </SubField>
+
+  <SubField name="DeleteBy" type="Number">
+    The user who deleted the award category (0 if not deleted).
+  </SubField>
+</ResponseField>
+
+<ResponseField name="msg" type="String">
+  A message indicating the result of the operation.
+</ResponseField>
+
+<RequestExample>
+
+```http
+GET https://{BASE_URL}/award-default_category/12
+Authorization: Bearer <access_token>
+```
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+  "status": 200,
+  "err": 0,
+  "data": [
+    {
+      "Id": 8,
+      "Name": "Site Vibes",
+      "Image": "image/awards-categories/1629411722.png",
+      "AwardTag": "feel,culture,vibe,mates,mojo,esprit,spirit",
+      "CreatedOn": "2021-08-19 22:22:02",
+      "CreatedBy": 1,
+      "UpdatedOn": "2021-08-19 22:22:02",
+      "UpdatedBy": 0,
+      "Deleted": 0,
+      "DeleteBy": 0
+    },
+    {
+      "Id": 11,
+      "Name": "Great Idea",
+      "Image": "image/awards-categories/1629604143.png",
+      "AwardTag": "Idea,initiative,suggestion,great,clever,smart,think",
+      "CreatedOn": "2021-08-19 22:33:53",
+      "CreatedBy": 1,
+      "UpdatedOn": "2021-08-22 03:49:03",
+      "UpdatedBy": 1,
+      "Deleted": 0,
+      "DeleteBy": 0
+    },
+    {
+      "Id": 18,
+      "Name": "Prestart Meeting",
+      "Image": "image/awards-categories/1629604797.png",
+      "AwardTag": "5,prestart,five,first,toolbox,take",
+      "CreatedOn": "2021-08-22 03:59:57",
+      "CreatedBy": 1,
+      "UpdatedOn": "2021-08-22 03:59:57",
+      "UpdatedBy": 0,
+      "Deleted": 0,
+      "DeleteBy": 0
+    },
+    {
+      "Id": 31,
+      "Name": "Covid Awareness",
+      "Image": "image/awards-categories/1631825461.png",
+      "AwardTag": "covid,covid19,corona",
+      "CreatedOn": "2021-09-16 20:51:01",
+      "CreatedBy": 1,
+      "UpdatedOn": "2021-09-16 20:51:01",
+      "UpdatedBy": 0,
+      "Deleted": 0,
+      "DeleteBy": 0
+    },
+    {
+      "Id": 32,
+      "Name": "Cleanliness",
+      "Image": "image/awards-categories/1632358126.png",
+      "AwardTag": "tidy,clean,broom,sweep,clear,organised",
+      "CreatedOn": "2021-09-23 00:48:46",
+      "CreatedBy": 1,
+      "UpdatedOn": "2021-09-23 00:48:46",
+      "UpdatedBy": 0,
+      "Deleted": 0,
+      "DeleteBy": 0
+    }
+  ],
+  "msg": "Default category of CA retrieved."
+}
+```
+</ResponseExample>
+
+

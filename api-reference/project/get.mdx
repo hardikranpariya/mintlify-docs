@@ -1,0 +1,173 @@
+---
+title: "Show Project"
+api: "GET https://sandbox.api.scratchie.com/project/view/:projectId"
+description: "The Get Project Details API allows you to retrieve detailed information about a specific project within the Scratchie open API system."
+---
+
+### Path Parameters
+
+<ParamField body="projectId" type="Number">
+  This field represents the project ID for the project you want to retrieve details for.
+</ParamField>
+
+### Headers
+
+<ParamField body="Authorization" type="String">
+  Bearer `<access_token>`
+</ParamField>
+### Response
+
+<ResponseField name="status" type="Number">
+  The HTTP status code of the response.
+</ResponseField>
+
+<ResponseField name="err" type="Number">
+  An error code or indicator (0 if successful).
+</ResponseField>
+
+<ResponseField name="data" type="Object">
+  Detailed information about the project.
+
+<Expandable title="Toggle object">
+
+<ResponseField name="Id" type="Number">
+  The project's unique ID.
+</ResponseField>
+
+<ResponseField name="Name" type="String">
+  The official name assigned to the project.
+</ResponseField>
+
+<ResponseField name="BuilderProjectReferenceNumber" type="String">
+  The unique reference number assigned to the project by the builder.
+</ResponseField>
+
+<ResponseField name="ScratchieProjectNumber" type="String">
+  The Scratchie project number.
+</ResponseField>
+
+<ResponseField name="Address" type="String">
+  The address of the project's physical location.
+</ResponseField>
+
+<ResponseField name="MobileNo" type="String or null">
+  The mobile number associated with the project (or null if not available).
+</ResponseField>
+
+<ResponseField name="AssignProjectCaId" type="Number">
+  The assigned project CA ID.
+</ResponseField>
+
+<ResponseField name="FundingOptions" type="String">
+  The funding options for the project.
+</ResponseField>
+
+<ResponseField name="minimumAmount" type="Number">
+  The minimum wallet size required for the project.
+</ResponseField>
+
+<ResponseField name="lastMonthCarriedOver" type="Number">
+  The carried-over amount from the last month.
+</ResponseField>
+
+<ResponseField name="PointPlan" type="Number">
+  The point plan for the project.
+</ResponseField>
+
+<ResponseField name="CreatedBy" type="Number">
+  The user who created the project.
+</ResponseField>
+
+<ResponseField name="CreatedOn" type="String">
+  The date and time the project was created.
+</ResponseField>
+
+<ResponseField name="UpdatedBy" type="Number">
+  The user who last updated the project.
+</ResponseField>
+
+<ResponseField name="UpdatedOn" type="String">
+  The date and time the project was last updated.
+</ResponseField>
+
+<ResponseField name="Deleted" type="Number">
+  Indicates if the project is deleted (0 for not deleted).
+</ResponseField>
+
+<ResponseField name="DeleteBy" type="String or null">
+  The user who deleted the project (or null if not deleted).
+</ResponseField>
+
+<ResponseField name="zaiWalletPayId" type="String">
+  The Zai wallet pay ID for the project.
+</ResponseField>
+
+<ResponseField name="zaiUserId" type="String">
+  The Zai user ID for the project.
+</ResponseField>
+
+<ResponseField name="awardGiverWin" type="Number">
+  Indicates if the award giver has won (0 for not won).
+</ResponseField>
+
+<ResponseField name="procoreCompanyId" type="String or null">
+  The Procore company ID (or null if not available).
+</ResponseField>
+
+<ResponseField name="scratchieOpenApi" type="Number">
+  Indicates if the project is part of the Scratchie Open API (1 for yes).
+</ResponseField>
+
+</Expandable>
+</ResponseField>
+<ResponseField name="msg" type="String">
+  A message indicating the result of the operation.
+</ResponseField>
+
+
+
+<RequestExample>
+
+```bash
+curl --location --request GET 'https://{BASE_URL}/project/view/346782' \
+--header 'Authorization: Bearer <access_token>'
+
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+  "status": 200,
+  "err": 0,
+  "data": {
+    "Id": 346782,
+    "Name": "test open api project",
+    "BuilderProjectReferenceNumber": "5423defsdfd",
+    "ScratchieProjectNumber": "AU22",
+    "Address": "AUS",
+    "MobileNo": null,
+    "AssignProjectCaId": 0,
+    "FundingOptions": "1",
+    "minimumAmount": 2000,
+    "lastMonthCarriedOver": 0,
+    "PointPlan": 0,
+    "CreatedBy": 2,
+    "CreatedOn": "2023-08-10T05:39:17.000Z",
+    "UpdatedBy": 2,
+    "UpdatedOn": "2023-08-10T05:39:17.000Z",
+    "Deleted": 0,
+    "DeleteBy": null,
+    "zaiWalletPayId": "2cb228a0-196e-013c-9b19-0a58a9feac03",
+    "zaiUserId": "52-test open project-AU22",
+    "awardGiverWin": 0,
+    "procoreCompanyId": null,
+    "scratchieOpenApi": 1
+  },
+  "msg": "Project details successfully retrieved"
+}
+```
+
+</ResponseExample>

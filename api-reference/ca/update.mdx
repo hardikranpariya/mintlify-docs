@@ -1,0 +1,72 @@
+---
+title: "Update CA"
+api: "POST https://sandbox.api.scratchie.com/ca/update"
+description: "The Update CA API allows you to seamlessly update a CA in the Scratchie Open API system and associate them with a project."
+---
+
+### Request Parameters
+
+<ParamField body="firstName" type="String">
+  FirstName of CA.
+</ParamField>
+
+<ParamField body="lastName" type="String">
+  LastName of CA.
+</ParamField>
+
+<ParamField body="caId" type="Number">
+  This field represents the https://{BASE_URL}/ca/create endpoint for obtaining the ID.
+</ParamField>
+
+### Headers
+
+<ParamField body="Authorization" type="String">
+  Bearer `<access_token>`
+</ParamField>
+
+### Response
+
+<ResponseField name="status" type="Number">
+  The HTTP status code of the response.
+</ResponseField>
+
+<ResponseField name="err" type="Number">
+  An error code or indicator (0 if successful).
+</ResponseField>
+
+<ResponseField name="data" type="Object">
+  An empty object.
+</ResponseField>
+
+<ResponseField name="msg" type="String">
+  A message indicating the result of the operation.
+</ResponseField>
+
+<RequestExample>
+
+```http
+POST https://{BASE_URL}/ca/update
+Authorization: Bearer <access_token>
+Content-Type: application/json
+
+{
+  "firstName": "hardiktest",
+  "lastName": "ca123",
+  "caId": 14
+}
+```
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+  "status": 200,
+  "err": 0,
+  "data": {},
+  "msg": "CA successfully updated."
+}
+```
+</ResponseExample>
+
+

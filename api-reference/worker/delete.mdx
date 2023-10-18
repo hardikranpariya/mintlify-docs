@@ -1,0 +1,58 @@
+---
+title: "Delete Worker"
+api: "DELETE https://sandbox.api.scratchie.com/worker/delete/:workerId"
+description: "The Delete Worker API enables you to remove a specific user from the Scratchie Open API system."
+---
+
+### Path Parameters
+
+<ParamField path="workerId" type="Number">
+  This field represents the ID of the worker you want to delete.
+</ParamField>
+
+### Headers
+
+<ParamField body="Authorization" type="String">
+  Bearer `<access_token>`
+</ParamField>
+
+### Response
+
+<ResponseField name="status" type="Number">
+  The HTTP status code of the response.
+</ResponseField>
+
+<ResponseField name="err" type="Number">
+  An error code or indicator (0 if successful).
+</ResponseField>
+
+<ResponseField name="data" type="Object">
+  An empty object.
+</ResponseField>
+
+<ResponseField name="msg" type="String">
+  A message indicating the result of the operation.
+</ResponseField>
+
+<RequestExample>
+
+```bash
+curl --location --request DELETE 'https://{BASE_URL}/worker/delete/1257' \
+--header 'Authorization: Bearer <access_token>'
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+  "status": 200,
+  "err": 0,
+  "data": {},
+  "msg": "Worker successfully deleted"
+}
+
+```
+
+</ResponseExample>

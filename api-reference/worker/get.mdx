@@ -1,0 +1,117 @@
+---
+title: "Show Worker"
+api: "GET https://sandbox.api.scratchie.com/worker/view/:workerId"
+description: "The Get Worker Details API allows you to retrieve detailed information about a specific user within the Scratchie Open API system."
+---
+
+### Path Parameters
+
+<ParamField path="workerId" type="Number">
+  This field represents the ID of the worker you want to retrieve.
+</ParamField>
+
+### Headers
+
+<ParamField body="Authorization" type="String">
+  Bearer `<access_token>`
+</ParamField>
+
+### Response
+
+<ResponseField name="status" type="Number">
+  The HTTP status code of the response.
+</ResponseField>
+
+<ResponseField name="err" type="Number">
+  An error code or indicator (0 if successful).
+</ResponseField>
+
+<ResponseField name="data" type="Object">
+  Information about the worker.
+
+<Expandable title="Toggle object">
+
+  <ResponseField name="FirstName" type="String">
+    The first name of the user.
+  </ResponseField>
+
+  <ResponseField name="LastName" type="String">
+    The last name of the user.
+  </ResponseField>
+
+  <ResponseField name="MobileNo" type="String">
+    The mobile number of the worker.
+  </ResponseField>
+
+  <ResponseField name="Email" type="String">
+    The unique email of the worker.
+  </ResponseField>
+
+  <ResponseField name="RoleId" type="Number">
+    The role ID of the worker (5 for worker).
+  </ResponseField>
+
+  <ResponseField name="ProjectId" type="String">
+    The ID of the project associated with the worker.
+  </ResponseField>
+
+  <ResponseField name="ReferralCode" type="String">
+    The referral code of the worker.
+  </ResponseField>
+
+  <ResponseField name="CreatedOn" type="String">
+    The date and time when the worker was created.
+  </ResponseField>
+
+  <ResponseField name="UpdatedOn" type="String">
+    The date and time when the worker was last updated.
+  </ResponseField>
+
+  <ResponseField name="id" type="Number">
+    The unique ID of the worker.
+  </ResponseField>
+
+  <ResponseField name="Deleted" type="Number">
+    Deletion status (0 if not deleted).
+  </ResponseField>
+</Expandable>
+</ResponseField>
+
+<ResponseField name="msg" type="String">
+  A message indicating the result of the operation.
+</ResponseField>
+
+<RequestExample>
+
+```bash
+curl --location --request GET 'https://{BASE_URL}/worker/view/1257' \
+--header 'Authorization: Bearer <access_token>'
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+  "status": 200,
+  "err": 0,
+  "data": {
+    "FirstName": "full ets",
+    "LastName": "test",
+    "MobileNo": "535353",
+    "Email": "svfhjsbvsjdh@gmail.com",
+    "RoleId": 5,
+    "ProjectId": "52",
+    "ReferralCode": "QVOW6Q",
+    "CreatedOn": "2023-08-10T08:51:10.000Z",
+    "UpdatedOn": "2023-08-10T08:51:10.000Z",
+    "id": 1257,
+    "Deleted": 0
+  },
+  "msg": "Worker details successfully retrieved"
+}
+
+```
+
+</ResponseExample>

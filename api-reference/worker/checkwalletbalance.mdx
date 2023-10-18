@@ -1,0 +1,66 @@
+---
+title: "Retrieve User's Account Balance"
+api: "GET https://sandbox.api.scratchie.com/worker/wallet-balance/:workerId"
+description: "The Retrieve User's Account Balance API allows you to retrieve detailed information about a specific user's wallet balance within the Scratchie open API system."
+---
+
+### Request Parameters
+
+<ParamField path="workerId" type="Number">
+  This field represents the ID of the worker for whom you want to retrieve the wallet balance, obtained from the worker's creation endpoint.
+</ParamField>
+
+### Headers
+
+<ParamField body="Authorization" type="String">
+  Bearer `<access_token>`
+</ParamField>
+
+### Response
+
+<ResponseField name="status" type="Number">
+  The HTTP status code of the response.
+</ResponseField>
+
+<ResponseField name="err" type="Number">
+  An error code or indicator (0 if successful).
+</ResponseField>
+
+<ResponseField name="data" type="Array">
+  An array containing wallet balance details for the worker, including their balance and project ID.
+</ResponseField>
+
+<ResponseField name="msg" type="String">
+  A message indicating the result of the operation.
+</ResponseField>
+
+<RequestExample>
+
+```http
+GET https://{BASE_URL}/worker/wallet-balance/1257
+Authorization: Bearer <access_token>
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+  "status": 200,
+  "err": 0,
+  "data": [
+    {
+      "Balance": 0,
+      "ProjectId": 52
+    },
+    {
+      "Balance": 0,
+      "ProjectId": 51
+    }
+  ],
+  "msg": "Worker wallet balance details"
+}
+```
+
+</ResponseExample>

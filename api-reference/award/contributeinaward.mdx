@@ -1,0 +1,79 @@
+---
+title: "Award in Participants API"
+api: "POST https://sandbox.api.scratchie.com/award/contributor-in-award"
+description: "The Join Award API for Workers empowers workers to participate in previously created awards."
+---
+
+### Request Parameters
+
+<ParamField body="WorkerId" type="Number">
+  This field represents the [worker ID](https://{BASE_URL}/worker/view/:workerId) endpoint for obtaining the ID.
+</ParamField>
+
+<ParamField body="AwardUniqueNo" type="String">
+  This field represents the [Award ID](https://{BASE_URL}/award/award-detail/:AwardId) endpoint for obtaining the ID.
+</ParamField>
+
+### Headers
+
+
+<ParamField body="Authorization" type="String">
+  Bearer `<access_token>`
+</ParamField>
+
+### Response
+
+<ResponseField name="status" type="Number">
+  The HTTP status code of the response.
+</ResponseField>
+
+<ResponseField name="err" type="Number">
+  An error code or indicator (0 if successful).
+</ResponseField>
+
+<ResponseField name="data" type="Object">
+  Details about the contribution to the award.
+</ResponseField>
+
+<ResponseField name="msg" type="String">
+  A message indicating the result of the operation.
+</ResponseField>
+
+<RequestExample>
+
+```json
+POST https://{BASE_URL}/award/contributor-in-award
+Content-Type: application/json
+Authorization: Bearer <access_token>
+
+{
+  "WorkerId": 1254,
+  "AwardUniqueNo": "85K4PC"
+}
+
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+Response
+{
+  "status": 200,
+  "err": 0,
+  "data": {
+    "UserId": 1254,
+    "ProjectPaymentStatusId": 171,
+    "AwardId": 3582,
+    "RandomToken": "85K4PC",
+    "Prize": 110,
+    "InTime": "2023-08-11T06:32:13.608Z",
+    "Id": 11210
+  },
+  "msg": "Successfully contributed to the award"
+}
+
+```
+
+</ResponseExample>

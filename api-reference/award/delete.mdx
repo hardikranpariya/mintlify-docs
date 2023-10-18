@@ -1,0 +1,68 @@
+---
+title: "Delete Award"
+api: "DELETE https://sandbox.api.scratchie.com/award/cancel-award/:AwardId"
+description: "The Delete Award API enables you to remove a specific award from the Scratchie Open API system."
+---
+
+### Request Parameters
+
+<ParamField body="AwardId" type="Number">
+  This field represents the [Award ID](https://{BASE_URL}/award/award-detail/:AwardId) endpoint for obtaining the ID.
+</ParamField>
+
+### Headers
+
+<ParamField body="Authorization" type="String">
+  Bearer `<access_token>`
+</ParamField>
+
+### Response
+
+<ResponseField name="status" type="Number">
+  The HTTP status code of the response.
+</ResponseField>
+
+<ResponseField name="err" type="Number">
+  An error code or indicator (0 if successful).
+</ResponseField>
+
+<ResponseField name="data" type="Object">
+  Details about the canceled award.
+</ResponseField>
+
+<ResponseField name="msg" type="String">
+  A message indicating the result of the operation.
+</ResponseField>
+
+<RequestExample>
+
+```json
+DELETE https://{BASE_URL}/award/cancel-award/3582
+Authorization: Bearer <access_token>
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+  "status": 200,
+  "err": 0,
+  "data": {
+    "Id": 154,
+    "ProjectPaymentStatusId": 171,
+    "Reward500": 0,
+    "Reward100": 2,
+    "Reward50": 0,
+    "Reward20": 6,
+    "Reward10": 11,
+    "Month": "2023-08",
+    "json": "{\"Monthly\":500,\"Weekly\":100,\"Daily1\":50,\"Daily2\":20,\"Daily3\":10}"
+  },
+  "msg": "Award successfully canceled"
+}
+
+```
+
+</ResponseExample>
